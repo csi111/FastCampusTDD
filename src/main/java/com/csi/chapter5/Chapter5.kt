@@ -1,6 +1,6 @@
 package com.csi.chapter5
 
-fun refineText(txt : String) : String{
+fun refineText(txt : String, vararg options: String) : String{
     return txt
         .replace("    ", " ")
         .replace("\t", " ")
@@ -9,4 +9,12 @@ fun refineText(txt : String) : String{
         .replace("  ", " ")
         .replace("mockist", "*******")
         .replace("purist", "******")
+        .let { original ->
+            var result = original
+            options.forEach { bannedWord ->
+                result = result.replace(bannedWord, "*".repeat(bannedWord.length))
+            }
+            result
+        }
+
 }

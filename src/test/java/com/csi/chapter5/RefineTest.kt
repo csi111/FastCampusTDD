@@ -44,7 +44,7 @@ class RefineTest {
         val source = "hello $bannedWord"
 
         //When
-        val actual = refineText(source)
+        val actual = refineText(source, bannedWord)
 
         val expected = "hello ${"*".repeat(bannedWord.length)}"
         Assertions.assertEquals(expected, actual)
