@@ -18,23 +18,16 @@ class Statistics {
 
     private fun getVariance(`data's`: IntArray): Double {
         val mean = calculateMean(`data's`)
-
         val sumOfSquares = calculateSumOfSquares(`data's`, mean)
-
         return sumOfSquares / (`data's`.size - 1)
     }
 
     private fun calculateSumOfSquares(`data's`: IntArray, mean: Double): Double {
-        var sumOfSquares = 0.0
-        `data's`.forEach {
-            sumOfSquares += (it - mean) * (it - mean)
-        }
-        return sumOfSquares
+        return `data's`.map { it - mean }.map { it * it }.sum()
     }
 
     private fun calculateMean(`data's`: IntArray): Double {
-        val sum = `data's`.sum()
-        return sum.toDouble() / `data's`.size
+        return `data's`.average()
     }
 
 
