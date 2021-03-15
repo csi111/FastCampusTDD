@@ -8,12 +8,16 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://dl.bintray.com/serpro69/maven-release-candidates/'
+    }
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testImplementation "io.github.serpro69:kotlin-faker:1.6.0"
 }
 
 test {
