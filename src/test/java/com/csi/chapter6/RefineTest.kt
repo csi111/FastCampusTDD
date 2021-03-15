@@ -32,7 +32,7 @@ class RefineTest {
     @DisplayName("bannedWordReplaceCharacter")
     @MethodSource("provideBannedWordsHelloWorldStrings")
     fun bannedWordReplaceCharacter(input: String, bannedWords : Array<String>, expected: String) {
-        val actual = refineText(input)
+        val actual = refineText(input, *bannedWords)
         Assertions.assertEquals(expected, actual)
     }
 
